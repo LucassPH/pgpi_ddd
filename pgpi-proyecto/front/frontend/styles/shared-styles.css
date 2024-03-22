@@ -1,0 +1,88 @@
+/*
+   CSS styling examples for the Vaadin app.
+   Visit https://vaadin.com/docs/flow/theme/theming-overview.html and
+   https://vaadin.com/themes/lumo for more information.
+*/
+
+/* Example: CSS class name to center align the content . */
+.centered-content {
+  margin: 0 auto;
+  max-width: 90vw;
+}
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-content .login-container {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.login-page {
+  /* Reglas de estilo del contenido de LoginPage */
+  /* ... */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+.selected {
+  border-bottom: 3px solid #776b53;
+  color: #776b53;
+}
+
+.centered-button {
+  margin: 1.5em auto 0;
+  max-width: 90vh;
+}
+.no-space-above{
+  margin-top: 0;
+  padding-top: 0;
+}
+.height-grid{
+  height: 55vh;
+}
+.form-button-with-padding{
+  margin-top: 1em;
+}
+.id-label{
+  font-size: 0.8em;
+  font-style: italic;
+  margin-right: 2em;
+  color: gray;
+}
+
+.vaadin-grid-no-click{
+  cursor: pointer;
+  user-select: none;
+}
+body{
+    background-color: #F5DEB3;
+}
+html{
+  background-color: #F5DEB3;
+}
+.button{
+  margin-right: 1em;
+  margin-left: 1em;
+}
+.contenedor-de-botones {
+  display: flex;
+  justify-content: center;
+}
+
