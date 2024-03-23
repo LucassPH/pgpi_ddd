@@ -18,19 +18,17 @@ public class UserService {
 
 
     public ResponseEntity<String> handleUserPost(User userPost) {
-
-
         User existingUser = userDAO.getUserByUsername(userPost.getUsername());
-        System.out.println(existingUser);
-        if (existingUser == null) {
 
+        if (existingUser == null) {
+            // El usuario no existe, devolver un estado UNAUTHORIZED con el tipo de usuario "null"
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("null");
         } else if (existingUser.getPassword().equals(userPost.getPassword())) {
-            return ResponseEntity.ok(existingUser.getUsername());
+            // La contraseña coincide, devolver el tipo de usuario en el cuerpo de la respuesta
+            return ResponseEntity.ok(String.valueOf(existingUser.getTipo_usuario()));
         } else {
-            System.out.println("2");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("null"); /* DEVUELVEN LA MISMA EXCEPCION
-                PARA NO SABER SI ES EL USUARIO O LA CONTRA LO INCORRECTO*/
+            // La contraseña no coincide, devolver un estado UNAUTHORIZED con el tipo de usuario "null"
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("null");
         }
     }
     public ResponseEntity<String> insertUserPost(User userPost) {

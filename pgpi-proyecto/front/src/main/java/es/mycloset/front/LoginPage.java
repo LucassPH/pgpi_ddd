@@ -30,10 +30,10 @@ public class LoginPage extends VerticalLayout {
 
     String user;
 
-    public int postLogin(User UserNuevo){
+    public void postLogin(User userNuevo) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            String json = objectMapper.writeValueAsString(UserNuevo);
+            String json = objectMapper.writeValueAsString(userNuevo);
             request = HttpRequest.newBuilder()
                     .uri(URI.create("http://localhost:8887/users"))
                     .header("Content-Type", "application/json")
@@ -43,8 +43,6 @@ public class LoginPage extends VerticalLayout {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(response);
-        return response.statusCode();
     }
     public int postSignup(User UserNuevo){
         try {
@@ -56,7 +54,7 @@ public class LoginPage extends VerticalLayout {
                     .method("POST", HttpRequest.BodyPublishers.ofString(json))
                     .build();
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.statusCode());
+
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
@@ -76,11 +74,19 @@ public class LoginPage extends VerticalLayout {
         loginButton.addClickListener(event -> {
 
             User nu = new User(idUsuario,username.getValue(), password.getValue(),1);
-            int us = postLogin(nu);
-            if (us == 200) {
-                Notification.show("Usuario o Contraseña Correcta");
-                User.setCurrentUser(nu);
-                UI.getCurrent().navigate("main");
+            postLogin(nu);
+            int statusCode = response.statusCode();
+            String responseBody = response.body();
+            int tipoUsuario = Integer.parseInt(responseBody);
+            if (statusCode == 200) {
+                Notification.show("Credenciales Correctas");
+                //User.setCurrentUser(nu);
+                if(tipoUsuario == 1){
+                    UI.getCurrent().navigate("main");
+                }else{
+                    UI.getCurrent().navigate("main2");
+                }
+
             } else {
                 Notification.show("Usuario o Contraseña Errónea");
             }
