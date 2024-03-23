@@ -158,4 +158,32 @@ public class DataService implements Serializable {
         // Si hay un error, devolver una lista vacía o manejar según tus necesidades
         return new ArrayList<>();
     }
+
+    public String getPedidos() {
+        try {
+            String resource = "http://localhost:8887/pedidos/1";
+            //System.out.println(resource);
+            request = HttpRequest
+                    .newBuilder(new URI(resource))
+                    .header("Content-Type", "application/json")
+                    .GET()
+                    .build();
+
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            //System.out.println(response.body());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return response.body();
+    }
+
+
+
+
 }

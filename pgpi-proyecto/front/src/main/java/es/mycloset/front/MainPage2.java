@@ -22,14 +22,14 @@ public class MainPage2 extends VerticalLayout {
         DataService service = new DataService();
 
         option1Cont = new VerticalLayout();
-        //GeneralInformation option1Generator = new GeneralInformation(service);
-        //option1Generator.addClassName("no-space-above");
-        //option1Cont.add(option1Generator);
+        PedidosNuevos option1Generator = new PedidosNuevos(service);
+        option1Generator.addClassName("no-space-above");
+        option1Cont.add(option1Generator);
 
         option2Cont = new VerticalLayout();
-        //GroupByMSCode option2Generator = new GroupByMSCode(service);
-        //option2Generator.addClassName("no-space-above");
-        //option2Cont.add(option2Generator);
+        PedidosRealizados option2Generator = new PedidosRealizados(service);
+        option2Generator.addClassName("no-space-above");
+        option2Cont.add(option2Generator);
         option2Cont.setVisible(false);
 
         Tab option1 = new Tab("Nuevos Pedidos");

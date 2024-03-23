@@ -4,20 +4,19 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.googlecode.gentyref.TypeToken;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class PedidosNuevos extends VerticalLayout {
-
+public class PedidosRealizados extends VerticalLayout {
     private VerticalLayout option2Cont;
     private Grid<Pedidos> grid;
     private DataService dataService;
     private Gson gson;
 
-    public PedidosNuevos(@Autowired DataService dataService){
+    public PedidosRealizados(@Autowired DataService dataService){
         this.dataService = dataService;
         this.gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -27,7 +26,7 @@ public class PedidosNuevos extends VerticalLayout {
         ArrayList<Pedidos> pedidosFiltrados = new ArrayList<>();
 
         for (Pedidos pedido : pedidos) {
-            if (pedido.getNuevo_pedido() == 1) {
+            if (pedido.getNuevo_pedido() == 0) {
                 pedidosFiltrados.add(pedido);
             }
         }
