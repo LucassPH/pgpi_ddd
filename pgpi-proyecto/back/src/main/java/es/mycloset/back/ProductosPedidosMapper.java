@@ -12,7 +12,7 @@ public class ProductosPedidosMapper implements RowMapper<ProductosPedidos> {
         ProductosPedidos productosPedidos = new ProductosPedidos();
         productosPedidos.setIdProductoPedido(rs.getString("idProductoPedido"));
         productosPedidos.setNombre_producto(rs.getString("nombre_producto"));
-        productosPedidos.setCantidad(rs.getString("cantidad"));
+        productosPedidos.setCantidad(rs.getFloat("cantidad"));
         return productosPedidos;
     }
 }

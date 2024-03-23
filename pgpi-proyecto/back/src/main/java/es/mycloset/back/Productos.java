@@ -4,7 +4,7 @@ public class Productos {
 
     String idProducto;
     String nombre_producto;
-    String stock;
+    Float stock;
 
     public String getIdProducto() {
         return idProducto;
@@ -18,10 +18,10 @@ public class Productos {
     public void setNombre_producto(String nombre_producto) {
         this.nombre_producto = nombre_producto;
     }
-    public String getStock() {
+    public Float getStock() {
         return stock;
     }
-    public void setStock(String stock) {
+    public void setStock(Float stock) {
         this.stock = stock;
     }
 }

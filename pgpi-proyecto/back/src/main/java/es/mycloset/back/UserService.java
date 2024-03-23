@@ -40,4 +40,17 @@ public class UserService {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("mal");
         } /*SI USUArIO NO EXISTE LO INSERTA SI EXISTE DEVUELVE EXCEPCION*/
     }
+
+    public Productos getProductoById(String productoId){return userDAO.getProductoId(productoId);}
+    public Pedidos getPedidoById(String pedidoId){return userDAO.getPedidoId(pedidoId);}
+    public List<Pedidos> getPedidos(String localId){return userDAO.getPedidos(localId);}
+    public List<Productos> getProductos(){return userDAO.getProductos();}
+    public List<ProductosPedidos> getProductosPedidos(){return userDAO.getProductosPedidos();}
+    public List<PedidoProducto> getPedidoProducto(){return userDAO.getPedidoProducto();}
+    public void insertarPedido(Pedidos Pedido){ userDAO.insertarPedido(Pedido);}
+    public void insertarProductosPedidos(ProductosPedidos Producto){ userDAO.insertarProductosPedidos(Producto);}
+    public void insertarPedidoProducto(PedidoProducto PedidoProducto){ userDAO.insertarPedidoProducto(PedidoProducto);}
+    public void actualizarPedidoAntiguo(String idPedido ){ userDAO.actualizarPedidoAntiguo(idPedido);}
+    public void actualizarProducto(String idProducto, float Stock ){ userDAO.actualizarProducto(idProducto,Stock);}
+
 }

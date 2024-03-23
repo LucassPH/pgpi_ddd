@@ -3,7 +3,7 @@ package es.mycloset.back;
 public class ProductosPedidos {
     String idProductoPedido;
     String nombre_producto;
-    String cantidad;
+    Float cantidad;
 
 
     public String getIdProductoPedido() {
@@ -22,11 +22,11 @@ public class ProductosPedidos {
         this.nombre_producto = nombre_producto;
     }
 
-    public String getCantidad() {
+    public Float getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(Float cantidad) {
         this.cantidad = cantidad;
     }
 }
